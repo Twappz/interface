@@ -74,7 +74,7 @@
             this.data_tb.Name = "data_tb";
             this.data_tb.ReadOnly = true;
             this.data_tb.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.data_tb.Size = new System.Drawing.Size(654, 462);
+            this.data_tb.Size = new System.Drawing.Size(764, 462);
             this.data_tb.TabIndex = 0;
             this.data_tb.TextChanged += new System.EventHandler(this.data_tb_TextChanged);
             // 
@@ -82,11 +82,11 @@
             // 
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.Color.Black;
-            this.button5.Location = new System.Drawing.Point(210, 17);
+            this.button5.Location = new System.Drawing.Point(210, 33);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(100, 26);
+            this.button5.Size = new System.Drawing.Size(100, 36);
             this.button5.TabIndex = 2;
-            this.button5.Text = "Run";
+            this.button5.Text = "START";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
@@ -286,12 +286,13 @@
             // 
             // button6
             // 
+            this.button6.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.ForeColor = System.Drawing.Color.Black;
-            this.button6.Location = new System.Drawing.Point(210, 49);
+            this.button6.Location = new System.Drawing.Point(1012, 29);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(100, 26);
+            this.button6.Size = new System.Drawing.Size(171, 36);
             this.button6.TabIndex = 5;
-            this.button6.Text = "Reset";
+            this.button6.Text = "Reset Power";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
@@ -324,10 +325,30 @@
             "233N3212-300",
             "233N3212-301",
             "233N3212-302",
-            "P1-Self Test",
-            "P2-Self Test",
-            "P3-Self Test",
-            "Board Test"});
+            "233A3206-1",
+            "233A3206-1 MOD A",
+            "233A3206-2",
+            "233A3206-3",
+            "233T3233-10",
+            "233T3233-11",
+            "233T3233-12",
+            "233T3233-14",
+            "233T3233-16",
+            "233T3233-18 THRU -24",
+            "233T3233-26",
+            "233T3233-29",
+            "233T3233-30",
+            "233T3233-31",
+            "233T3233-33 THRU -35",
+            "233T3233-38",
+            "233T3233-40",
+            "233T3233-42",
+            "233T3233-43",
+            "233T3233-45",
+            "233T3233-48",
+            "233T3233-51",
+            "233T3233-54",
+            "233T3233-57"});
             this.comboBox2.Location = new System.Drawing.Point(26, 24);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(193, 24);
@@ -355,14 +376,13 @@
             this.groupBox4.ForeColor = System.Drawing.Color.Black;
             this.groupBox4.Location = new System.Drawing.Point(372, 83);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(690, 521);
+            this.groupBox4.Size = new System.Drawing.Size(811, 521);
             this.groupBox4.TabIndex = 15;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "TEST RESULTS";
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.button6);
             this.groupBox5.Controls.Add(this.button5);
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.ForeColor = System.Drawing.Color.Black;
@@ -371,7 +391,8 @@
             this.groupBox5.Size = new System.Drawing.Size(329, 84);
             this.groupBox5.TabIndex = 16;
             this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Step 4: RUN THE TEST";
+            this.groupBox5.Text = "Step 4: START THE TEST";
+            this.groupBox5.Enter += new System.EventHandler(this.groupBox5_Enter);
             // 
             // status
             // 
@@ -385,9 +406,10 @@
             // 
             // about_btn
             // 
+            this.about_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.about_btn.Location = new System.Drawing.Point(12, 29);
             this.about_btn.Name = "about_btn";
-            this.about_btn.Size = new System.Drawing.Size(115, 23);
+            this.about_btn.Size = new System.Drawing.Size(197, 38);
             this.about_btn.TabIndex = 18;
             this.about_btn.Text = "About the Software";
             this.about_btn.UseVisualStyleBackColor = true;
@@ -398,7 +420,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(1074, 631);
+            this.ClientSize = new System.Drawing.Size(1219, 631);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.about_btn);
             this.Controls.Add(this.status);
             this.Controls.Add(this.groupBox5);

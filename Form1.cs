@@ -97,7 +97,7 @@ namespace Interface
             //int data_value = Convert.ToInt32(in_data);
             //value_pb.Value = data_value;
 
-            if (in_data.Contains("Test in progress"))
+            if (in_data.Contains("Starting"))
             {
                 string box_msg = "Push S1 on the UUT to ON and click OK to continue";
                 string box_title = "S1 ON Test";
@@ -176,7 +176,7 @@ namespace Interface
            else if (in_data.Contains("S3 ON test completed"))
             {
                 string box_msg = "Push S3 on the UUT to OFF and click OK to continue";
-                string box_title = "S4 ON TEST";
+                string box_title = "S3 OFF TEST";
                 DialogResult result = MessageBox.Show(box_msg, box_title, MessageBoxButtons.OKCancel);
                 if (result == DialogResult.OK)
                 {
@@ -192,7 +192,7 @@ namespace Interface
            else if (in_data.Contains("S3 OFF test completed"))
             {
                 string box_msg = "Push S4 on the UUT to ON and click OK to continue";
-                string box_title = "S4 OFF TEST";
+                string box_title = "S4 ON TEST";
                 DialogResult result = MessageBox.Show(box_msg, box_title, MessageBoxButtons.OKCancel);
                 if (result == DialogResult.OK)
                 {
@@ -238,37 +238,39 @@ namespace Interface
             }
 
 
-            else if (in_data.Contains("Testing J2-10"))
+            else if (in_data.Contains("Verifying J2-10..."))
             {
-                string box_msg = "Verify S1 INOP light illuminates";
+                string box_msg = "Verify S1 INOP light illuminates"; //Verify S1 INOP is ON?
                 string box_title = "S1 Lamp Test";
                 DialogResult result = MessageBox.Show(box_msg, box_title, MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
-                data_tb.AppendText("S1 Lamp Test......................................PASSED");
+                    myport.Write("#210P\n"); //Show  message that it passes.
+                  
                 }
                 else if (result == DialogResult.No)
                 {
                  data_tb.AppendText("S1 Lamp Test......................................FAILED");
                 }
-                  myport.Write("#J24");
+                  myport.Write("#0J24\n");  //Proceed to next pin to test
             }
 
 
-            else if (in_data.Contains("Testing J2-4"))
+            else if (in_data.Contains("Verifying J2-4...")) // J2-4 Test completed?
             {
-                string box_msg = "Verify S3 INOP light illuminates";
+                string box_msg = "Verify S3 and S1 INOP light illuminates";
                 string box_title = "S3 Lamp Test";
                 DialogResult result = MessageBox.Show(box_msg, box_title, MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
-                    data_tb.AppendText("S3 Lamp Test......................................PASSED");
+                    myport.Write("#240P\n");//Show  message that it passes.
+
                 }
                 else if (result == DialogResult.No)
                 {
                     data_tb.AppendText("S3 Lamp Test......................................FAILED");
                 }
-                myport.Write("#J24");
+                 myport.Write("");
             }
 
 
@@ -399,7 +401,7 @@ namespace Interface
                 //txtMessage.Clear();
                 // myport.WriteLine("");
                 data_tb.Clear();
-               myport.Write("#STAR\n");
+               myport.Write("#INIT\n");
                     
                 }
 
@@ -553,6 +555,7 @@ namespace Interface
                     myport.Write("#RESE\n");
                     // myport.DtrEnable = true;
                 }
+               
             }
             catch (Exception ex)
 
@@ -565,10 +568,9 @@ namespace Interface
 
         private void about_btn_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(
-                           " TEST INTERFACE BETA RELEASE \n\n" +
+            MessageBox.Show(" TEST INTERFACE BETA RELEASE \n\n" +
                            " This program is free software; you can redistribute it \n" +
-                           " it under the terms of the GNU General Public License as published by \n" +
+                           " under the terms of the GNU General Public License as published by \n" +
                            " the Free Software Foundation; either version 2 of the License, or \n" +
                            " any later version. \n" +
 
@@ -576,7 +578,7 @@ namespace Interface
                             " but WITHOUT ANY WARRANTY; without even the implied warranty of \n " +
                             " MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n " +
                             " See the GNU General Public License for more details.\n " +
-                            " email rontab68@support.com for technical support questions");
+                            " email rontab68@gmail.com for technical support questions");
         }
 
         private void data_tb_TextChanged(object sender, EventArgs e)
@@ -585,6 +587,11 @@ namespace Interface
         }
 
         private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox5_Enter(object sender, EventArgs e)
         {
 
         }
