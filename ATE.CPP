@@ -1,12 +1,12 @@
 
 /*************************************************************************
 Title:    Automated Testpoints
-Authors:  RonTab<rontab68@yahoo.com>
+Authors:  Futturman<Futturman@yahoo.com>
 File:     $Id: $
 License:  GNU General Public License v3
 
 LICENSE:
-    Copyright (C) 2020 Ronald Tablan
+    Copyright (C) 2020 J1Futturman
     #include <Relay16.h>
 
     This program is free software; you can redistribute it and/or modify
